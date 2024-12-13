@@ -1,0 +1,30 @@
+# Node modules 
+node_modules/ 
+# Logs 
+npm-debug.log* 
+yarn-debug.log* 
+yarn-error.log* 
+# Environment files 
+.env 
+.env.local 
+.env.development.local 
+.env.test.local 
+.env.production.local 
+# Next.js build output 
+.next/ 
+.vercel/ 
+# Static files 
+out/ 
+# System files 
+.DS_Store 
+Thumbs.db 
+# TypeScript 
+*.tsbuildinfo 
+# IDE-specific files 
+.idea/ 
+.vscode/ 
+# Miscellaneous 
+*.lock 
+*.log 
+
+.vercel

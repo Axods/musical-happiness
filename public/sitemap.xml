@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
+  <url>
+    <loc>https://intelgain.io</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Authentication Pages -->
+  <url>
+    <loc>https://intelgain.io/sign-up</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/sign-in</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Main Features -->
+  <url>
+    <loc>https://intelgain.io/search</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/dashboard</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Information Pages -->
+  <url>
+    <loc>https://intelgain.io/pricing</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/about</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/contact</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Legal Pages -->
+  <url>
+    <loc>https://intelgain.io/privacy-policy</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/terms-of-service</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Support Pages -->
+  <url>
+    <loc>https://intelgain.io/faq</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/support</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Features/Benefits Pages -->
+  <url>
+    <loc>https://intelgain.io/features</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/for-journalists</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://intelgain.io/for-researchers</loc>
+    <lastmod>2024-12-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
