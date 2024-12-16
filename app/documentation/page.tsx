@@ -77,12 +77,42 @@ export default function Documentation() {
                     GET /search
                   </div>
                   <p className="text-steel-gray mb-4">
-                    Search for breached data by name, email, or username.
+                    Search by name.
                   </p>
                   <h4 className="font-semibold text-deep-blue mb-2">Parameters:</h4>
                   <ul className="list-disc list-inside mb-4 text-steel-gray">
                     <li>name (required): String to search for</li>
-                    <li>type (optional): Type of search (email, username, name)</li>
+                  </ul>
+                  <div className="bg-gray-50 p-4 rounded-md">
+                    <pre className="text-sm overflow-x-auto">
+{`{
+    "data": [...search results...],
+    "usage": {
+        "daily_requests": 7,
+        "daily_limit": 8,
+        "remaining": 1,
+        "total_requests": 10
+    }
+}`}
+                    </pre>
+                  </div>
+                </div>
+
+                {/* Phone Search Endpoint */}
+                <div className="bg-white rounded-lg shadow-md p-6">
+                  <div className="flex items-center mb-4">
+                    <Search className="w-5 h-5 text-teal mr-2" />
+                    <h3 className="text-xl font-semibold text-deep-blue">Phone Search</h3>
+                  </div>
+                  <div className="font-mono text-sm bg-gray-50 p-3 rounded mb-4">
+                    GET /search
+                  </div>
+                  <p className="text-steel-gray mb-4">
+                    Search by phone number.
+                  </p>
+                  <h4 className="font-semibold text-deep-blue mb-2">Parameters:</h4>
+                  <ul className="list-disc list-inside mb-4 text-steel-gray">
+                    <li>phone (required): The phone number to search for, in the format of a string (e.g., "9402431558")</li>
                   </ul>
                   <div className="bg-gray-50 p-4 rounded-md">
                     <pre className="text-sm overflow-x-auto">
@@ -177,7 +207,7 @@ export default function Documentation() {
                     <div className="p-4 bg-gray-50 rounded-md">
                       <h4 className="font-mono text-sm mb-2">Search Request</h4>
                       <pre className="text-sm overflow-x-auto">
-{`curl -X GET "https://api.intelgain.io/search?name=john&type=email" \\
+{`curl -X GET "https://api.intelgain.io/search?name=john%20doe" \\
 -H "X-API-Key: your_api_key"`}
                       </pre>
                     </div>
@@ -192,6 +222,13 @@ export default function Documentation() {
                       <h4 className="font-mono text-sm mb-2">Trial Search</h4>
                       <pre className="text-sm overflow-x-auto">
 {`curl -X GET "https://api.intelgain.io/trial-search?name=john"`}
+                      </pre>
+                    </div>
+                    <div className="p-4 bg-gray-50 rounded-md">
+                      <h4 className="font-mono text-sm mb-2">Phone Search</h4>
+                      <pre className="text-sm overflow-x-auto">
+{`curl -X GET "https://api.intelgain.io/search?phone=9402431558" \\
+-H "X-API-Key: your_api_key"`}
                       </pre>
                     </div>
                   </div>

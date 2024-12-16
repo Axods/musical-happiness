@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Search, Shield, Database, Zap } from 'lucide-react';
+import { Search, Shield, Database, Zap, CheckCircle } from 'lucide-react';
 import { TrialSearch } from '@/components/search/trial-search';
 import Link from 'next/link';
 
@@ -11,19 +11,34 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold text-white mb-6">
-              Search Smarter, <span className="text-[#FFD700]">Uncover More</span>
+              Find Detailed Information About <span className="text-[#FFD700]">U.S. Residents</span>
             </h1>
-            <p className="text-xl text-gray-300 mb-12">
-              Professional data search and intelligence platform for journalists and researchers.
+            <p className="text-xl text-gray-300 mb-6">
+              Access comprehensive public records data for background checks, 
+              investigative journalism, and research purposes.
             </p>
+            <div className="flex flex-wrap gap-4 justify-center mb-12">
+              <div className="flex items-center text-gray-300">
+                <CheckCircle className="h-5 w-5 mr-2 text-[#FFD700]" />
+                <span>Public Records</span>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <CheckCircle className="h-5 w-5 mr-2 text-[#FFD700]" />
+                <span>Background Checks</span>
+              </div>
+              <div className="flex items-center text-gray-300">
+                <CheckCircle className="h-5 w-5 mr-2 text-[#FFD700]" />
+                <span>Contact Information</span>
+              </div>
+            </div>
             
             {/* Search Demo Box */}
             <div className="bg-white rounded-lg p-8 shadow-xl mb-12">
-              <h2 className="text-2xl font-bold text-deep-blue mb-6">Try a Free Search</h2>
+              <h2 className="text-2xl font-bold text-deep-blue mb-6">Try a Free People Search</h2>
               <TrialSearch />
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center gap-4">
               <Link href="/sign-up">
                 <Button className="bg-[#FFD700] hover:bg-[#002855] text-black hover:text-white transition-colors">
                   Sign Up Now
@@ -45,17 +60,41 @@ export default function Home() {
             <FeatureCard 
               icon={<Database className="h-8 w-8 text-[#008080]" />}
               title="Comprehensive Data"
-              description="Access millions of records from verified sources worldwide."
+              description="Access millions of verified public records from trusted sources."
             />
             <FeatureCard 
               icon={<Zap className="h-8 w-8 text-[#008080]" />}
-              title="Lightning Fast"
-              description="Get instant results with our advanced search algorithm."
+              title="Real-Time Results"
+              description="Get instant access to current information and records."
             />
             <FeatureCard 
               icon={<Shield className="h-8 w-8 text-[#008080]" />}
               title="Secure & Compliant"
-              description="Your searches are protected with enterprise-grade security."
+              description="All searches comply with FCRA and privacy regulations."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-[#002855] mb-12">
+            Who Uses IntelGain?
+          </h2>
+          
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <UseCaseCard
+              title="Journalists"
+              description="Verify sources and uncover connections for investigative reporting."
+            />
+            <UseCaseCard
+              title="Researchers"
+              description="Access comprehensive data for academic and professional research."
+            />
+            <UseCaseCard
+              title="Professionals"
+              description="Conduct thorough background checks and verify information."
             />
           </div>
         </div>
@@ -75,6 +114,18 @@ function FeatureCard({ icon, title, description }: {
         {icon}
       </div>
       <h3 className="text-xl font-semibold text-[#002855] mb-3">{title}</h3>
+      <p className="text-[#4A4A4A]">{description}</p>
+    </div>
+  );
+}
+
+function UseCaseCard({ title, description }: {
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="bg-gray-50 p-6 rounded-lg">
+      <h3 className="text-xl font-semibold text-[#002855] mb-2">{title}</h3>
       <p className="text-[#4A4A4A]">{description}</p>
     </div>
   );

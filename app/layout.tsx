@@ -7,21 +7,26 @@ import { Footer } from '@/components/layout/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'IntelGain - Professional U.S. Person Search Platform',
-  description: 'The most reliable U.S. person search platform for journalists and researchers. Free access for journalists, transparent pricing, and comprehensive data search capabilities.',
+  title: 'IntelGain | People Search & Background Check Platform',
+  description:
+    'Conduct reliable people searches, US person lookups, and background checks. IntelGain is the top search tool for journalists and researchers.',
   keywords: [
-    'person search',
-    'US person search',
-    'journalist research tool',
-    'people finder',
+    'people search',
     'background check',
+    'US person search',
+    'US people search',
+    'TLO alternative',
+    'investigative research tool',
     'public records search',
-    'investigative journalism tool',
-    'data search platform',
-    'professional research tool',
-    'people search engine'
+    'find people online',
+    'person lookup',
+    'data search for journalists',
+    'person search engine',
+    'people search tool',
+    'background check tool',
+    'US people search tool',
   ],
-  authors: [{ name: 'IntelGain' }],
+  authors: [{ name: 'IntelGain Team' }],
   creator: 'IntelGain',
   publisher: 'IntelGain',
   formatDetection: {
@@ -34,8 +39,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'IntelGain - Professional U.S. Person Search Platform',
-    description: 'The most reliable U.S. person search platform for journalists and researchers. Free access for journalists, transparent pricing, and comprehensive data search capabilities.',
+    title: 'IntelGain | People Search & Background Check Platform',
+    description:
+      'The best people search and background check platform for journalists, researchers, and professionals. Transparent pricing and free journalist access.',
     url: 'https://intelgain.io',
     siteName: 'IntelGain',
     locale: 'en_US',
@@ -43,8 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'IntelGain - Professional U.S. Person Search Platform',
-    description: 'The most reliable U.S. person search platform for journalists and researchers. Free access for journalists.',
+    title: 'IntelGain | US Person Search Tool',
+    description:
+      'Conduct reliable US person searches and background checks with IntelGain. Free for journalists.',
     creator: '@IntelGain',
   },
   robots: {
@@ -73,14 +80,15 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="theme-color" content="#002855" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
       </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>
