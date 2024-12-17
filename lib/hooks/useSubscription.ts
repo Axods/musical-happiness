@@ -17,12 +17,24 @@ export function useSubscription(userId: string | null) {
       }
 
       try {
-        const { isSubscribed, apiKey, error } = await checkSubscriptionStatus(userId);
-        setIsSubscribed(isSubscribed);
-        setApiKey(apiKey);
-        setError(error);
+        const response = await fetch(`/api/user/subscription?userId=${userId}`);
+        const data = await response.json();
+        
+        // Check if subscription is active
+        const hasActiveSubscription = data.data?.status === 'active';
+        setIsSubscribed(hasActiveSubscription);
+
+        // Get API key in a separate request
+        if (hasActiveSubscription) {
+          const apiKeyResponse = await fetch(`/api/user/api-key?userId=${userId}`);
+          const apiKeyData = await apiKeyResponse.json();
+          setApiKey(apiKeyData.data?.key || null);
+        }
+
+        setError(null);
       } catch (err) {
         setError('Failed to check subscription status');
+        console.error('Subscription check error:', err);
       } finally {
         setLoading(false);
       }

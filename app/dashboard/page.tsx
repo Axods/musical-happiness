@@ -33,26 +33,28 @@ export default function Dashboard() {
     checkSession();
   }, [router]);
 
+  const { isSubscribed, apiKey, loading: subscriptionLoading } = useSubscription(user?.id);
+
   useEffect(() => {
     const fetchStats = async () => {
-      if (!user?.id) return;
+      if (!user?.id || !isSubscribed) return;
       
       try {
         const response = await fetchApi<{ data: { stats: ApiKeyStats } }>(
           `/api/user/api-key?userId=${user.id}`
         );
-        setStats(response.data.stats);
+        if (response.data?.stats) {
+          setStats(response.data.stats);
+        }
       } catch (error) {
         console.error('Failed to fetch API key stats:', error);
       }
     };
 
-    if (user?.id) {
+    if (user?.id && isSubscribed) {
       fetchStats();
     }
-  }, [user?.id]);
-
-  const { isSubscribed, apiKey, loading: subscriptionLoading } = useSubscription(user?.id);
+  }, [user?.id, isSubscribed]);
 
   if (loading || subscriptionLoading) {
     return (
@@ -67,7 +69,7 @@ export default function Dashboard() {
   }
 
   // Check if user has either a subscription or an API key
-  const hasAccess = isSubscribed || !!apiKey;
+  const hasAccess = isSubscribed || apiKey;
 
   return (
     <div className="min-h-screen bg-gray-50 py-16">

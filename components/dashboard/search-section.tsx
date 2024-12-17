@@ -7,11 +7,17 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { performSearch } from '@/lib/api/search';
 import { ResultCard } from '@/components/search/result-card';
-import { SearchFilters, type SearchFilters as FilterTypes } from './search-filters';
 import type { SearchResponse, SearchResult } from '@/lib/api/types';
 
 interface SearchSectionProps {
   apiKey: string;
+}
+
+interface SearchFilters {
+  city?: string;
+  county?: string;
+  state?: string;
+  zip?: string;
 }
 
 export function SearchSection({ apiKey }: SearchSectionProps) {
@@ -20,7 +26,7 @@ export function SearchSection({ apiKey }: SearchSectionProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
-  const [filters, setFilters] = useState<FilterTypes>({});
+  const [filters, setFilters] = useState<SearchFilters>({});
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,14 +45,14 @@ export function SearchSection({ apiKey }: SearchSectionProps) {
     }
   };
 
-  const handleFilterChange = (newFilters: FilterTypes) => {
+  const handleFilterChange = (newFilters: Partial<SearchFilters>) => {
     setFilters(prev => ({ ...prev, ...newFilters }));
   };
 
   const filteredResults = useMemo(() => {
-    if (!results?.data.results) return [];
+    if (!results?.data?.name_data?.results) return [];
 
-    return results.data.results.filter(result => {
+    return results.data.name_data.results.filter(result => {
       const otherFields = result.other_fields || {};
       
       const matchesCity = !filters.city || 
@@ -101,7 +107,48 @@ export function SearchSection({ apiKey }: SearchSectionProps) {
         </div>
 
         {showFilters && (
-          <SearchFilters onFilterChange={handleFilterChange} />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-gray-50 rounded-lg">
+            <div>
+              <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                City
+              </label>
+              <Input
+                id="city"
+                placeholder="Filter by city"
+                onChange={(e) => handleFilterChange({ city: e.target.value })}
+              />
+            </div>
+            <div>
+              <label htmlFor="county" className="block text-sm font-medium text-gray-700">
+                County
+              </label>
+              <Input
+                id="county"
+                placeholder="Filter by county"
+                onChange={(e) => handleFilterChange({ county: e.target.value })}
+              />
+            </div>
+            <div>
+              <label htmlFor="state" className="block text-sm font-medium text-gray-700">
+                State
+              </label>
+              <Input
+                id="state"
+                placeholder="Filter by state"
+                onChange={(e) => handleFilterChange({ state: e.target.value })}
+              />
+            </div>
+            <div>
+              <label htmlFor="zip" className="block text-sm font-medium text-gray-700">
+                ZIP Code
+              </label>
+              <Input
+                id="zip"
+                placeholder="Filter by ZIP"
+                onChange={(e) => handleFilterChange({ zip: e.target.value })}
+              />
+            </div>
+          </div>
         )}
       </form>
 
@@ -114,7 +161,7 @@ export function SearchSection({ apiKey }: SearchSectionProps) {
       {results && (
         <div className="mt-6 space-y-6">
           <div className="text-steel-gray">
-            Found {filteredResults.length} of {results.data.found} total matches
+            Found {filteredResults.length} of {results.data.name_data?.found || 0} total matches
           </div>
           {filteredResults.map((result, index) => (
             <ResultCard key={index} result={result} />
