@@ -14,6 +14,8 @@ import {
   DialogTitle,
   DialogDescription,
 } from '@/components/ui/dialog';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { AlertTriangle } from 'lucide-react';
 
 export default function SignIn() {
   const router = useRouter();
@@ -66,6 +68,14 @@ export default function SignIn() {
           <Logo className="text-deep-blue" />
           <h2 className="mt-6 text-3xl font-bold text-deep-blue">Sign in to your account</h2>
         </div>
+
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Important Notice</AlertTitle>
+          <AlertDescription>
+            Due to a recent bug, all registered user accounts were deleted. If you were previously registered, you will need to create a new account. If you had an active subscription, please email <a href="mailto:Support@IntelGain.io" className="font-medium underline hover:text-deep-blue">Support@IntelGain.io</a> for assistance.
+          </AlertDescription>
+        </Alert>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           {error && (
@@ -179,3 +189,4 @@ export default function SignIn() {
     </div>
   );
 }
+

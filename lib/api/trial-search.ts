@@ -1,7 +1,7 @@
 import type { SearchResponse } from './types';
 
-export async function trialSearch(name: string): Promise<SearchResponse> {
-  const response = await fetch(`https://api.intelgain.io/trial-search?name=${encodeURIComponent(name)}`, {
+export async function trialSearch(searchParam: string): Promise<SearchResponse> {
+  const response = await fetch(`https://api.intelgain.io/trial-search${searchParam}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

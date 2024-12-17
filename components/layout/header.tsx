@@ -32,6 +32,7 @@ export function Header() {
     { href: '/about', label: 'About', showAlways: true },
     { href: '/journalist-access', label: 'Journalist Access', showAlways: true },
     { href: '/pricing', label: 'Pricing', showAlways: true },
+    { href: '/faq', label: 'FAQ', showAlways: true },
   ];
   
   return (

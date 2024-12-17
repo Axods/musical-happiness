@@ -66,6 +66,9 @@ export default function Dashboard() {
     return null;
   }
 
+  // Check if user has either a subscription or an API key
+  const hasAccess = isSubscribed || !!apiKey;
+
   return (
     <div className="min-h-screen bg-gray-50 py-16">
       <motion.div 
@@ -77,10 +80,10 @@ export default function Dashboard() {
         <div className="max-w-6xl mx-auto space-y-8">
           <WelcomeSection email={user.email} />
           
-          {isSubscribed && apiKey ? (
+          {hasAccess ? (
             <>
               {stats && <StatsOverview {...stats} />}
-              <SearchSection apiKey={apiKey} />
+              <SearchSection apiKey={apiKey || ''} />
               <ApiKeyDisplay userId={user.id} />
             </>
           ) : (
